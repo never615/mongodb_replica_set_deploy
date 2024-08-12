@@ -32,6 +32,7 @@ chmod +x upload2server.sh
 执行环境需要安装sshpass. `brew installsshpass` `apt-get install sshpass` `yum install sshpass`
 
 ./upload2server.sh "/Users/never615/Code/docker/vm-mongodb.zip" "/home/mallto"  "mallto@192.168.1.92" "mallto@192.168.1.226" "mallto@192.168.1.231"
+./upload2server.sh "/Users/never615/Code/docker/vm-mongodb.zip" "/mongodb_install"  "root@11.30.199.183" "root@11.30.199.184" "root@11.30.199.185"
 
 解压: unzip vm-mongodb.zip
 ```
@@ -81,6 +82,15 @@ rs.initiate( {
       { _id: 0, host: "mongodb0.example.net:27017" },
       { _id: 1, host: "mongodb1.example.net:27017" },
       { _id: 2, host: "mongodb2.example.net:27017" }
+   ]
+})
+
+rs.initiate( {
+   _id : "rs0",
+   members: [
+      { _id: 0, host: "kwhdbsvmcprd08.server.ha.org.hk:27017" },
+      { _id: 1, host: "kwhdbsvmcprd09.server.ha.org.hk:27017" },
+      { _id: 2, host: "kwhdbsvmcprd10.server.ha.org.hk:27017" }
    ]
 })
 ```
